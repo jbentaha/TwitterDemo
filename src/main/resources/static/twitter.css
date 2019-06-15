@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+label{
+	width : 150px;
+}
+
+#formulaire{
+	margin: auto;
+	margin-left:200px;
+	margin-right: 200px;
+}
+
+#liste{
+	margin: auto;
+	width: 200px;
+	height: 50px;
+	border-left: 6px solid #b35900;
+}
+
+#ajout{
+	margin-left: 150px;
+}
+
+#messageView{
+	margin-left: 300px;
+	margin-right: 300px;
+	padding-left: 10px;
+}
+
+.success{
+	height: 50px;
+	border-bottom: 6px solid #00b8e6;
+    //background-color: #00b8e6;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#logOut{
+	float: right;
+	margin-top: 15px;
+	margin-right: 5px;
+}
+
+#userNow{
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+	font-weight: bold;
+}
+
+.delete{
+	float: right; 
+	display: block;
+	height:30px;
+	width:40px;
+	margin-top: 5px;
+	
+	background : url('/img/delete.png');
+}
+
+.like{
+	float: right;
+	display: block;
+	margint-right: 10px;
+	margin-top:5px;
+}
+
+.nbLikes{
+	float : left;
+	margin-right: 12px;
+	margin-top:5px;
+}
+
+.userText{
+	display : block;
+	float : left;
+	font-style : italic;
+	color : blue;
+	text-align: left;
+}
+
+
