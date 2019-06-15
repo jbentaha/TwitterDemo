@@ -1,2 +1,0 @@
-# TwitterDemo
-Twitter Simulation
