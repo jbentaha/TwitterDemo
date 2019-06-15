@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>ma premiere app Twitter</title>
+<link rel="stylesheet" type="text/css" href="twitter.css"></link>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"></link>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+	
+<script src="js/twitter.js"></script>
+
+</head>
+
+<body onload="charger()">
+
+	<div id="logOut">
+		<button type="button" class="btn btn-info" onclick="deconnecter()"> log out </button>
+	</div>
+	<div id="userNow">
+	
+	</div>
+	
+	<div class="container">
+ 
+		<h1>Twitter simulation</h1>
+		<form method="GET">
+			<div class="form-group">
+			 
+			<label for=" Email1msg">Wanna tweet ?</label>
+			
+			<textarea class="form-control" rows="5" id="message" name="message"></textarea>
+			 
+			</div>
+			<button type="button" class="btn btn-info" id="envoyer" onclick="ajouter()">Tweet</button>
+		</form>
+	</div>
+	
+	<div id="messageView">
+		
+	</div>
+	
+	<script type="text/javascript">
+		$('form').keypress(function(e){
+			if( e.which == 13 ){
+		        ajouter();
+		        $("#message").val("");
+		    }
+		});
+	</script>
+	
+	
+</body>
+
+</html>
