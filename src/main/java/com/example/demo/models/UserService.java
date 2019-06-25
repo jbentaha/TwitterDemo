@@ -1,6 +1,7 @@
 package com.example.demo.models;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,9 +50,9 @@ public class UserService {
 	
 	public boolean existUserInBase(User usr){
 		boolean exist = false;
-		if(base.exists(usr.getUsername())) {
-			User user = (User) base.findOne(usr.getUsername());
-			if(user.getPassword().equals(usr.getPassword())) {
+		if(base.existsById(usr.getUsername())) {
+			Optional<User> user =  base.findById(usr.getUsername());
+			if(user.get().getPassword().equals(usr.getPassword())) {
 				exist = true;
 			}
 		}

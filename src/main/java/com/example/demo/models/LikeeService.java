@@ -23,7 +23,7 @@ public class LikeeService {
 			return true;
 		}
 		else {
-			base.delete(like.getId());
+			base.deleteById(like.getId());
 			System.out.println("deleted");
 			return false;
 		}

@@ -112,14 +112,12 @@ public class ApiController {
 				obj.add("likes", lService.getAllLikesByMsg(idMsg)).add("isAdded", added).add("nbLikes",
 						lService.getNbLikes(idMsg));
 			}
-				;
 				break;
 			case "isUserLiked": {
 				boolean result = lService.isMsgLikesByUser(idMsg, idUser);
 				arrayBuilder = lService.usersLikeMsg(idMsg);
 				obj.add("isLiked", result).add("LikedBy", arrayBuilder).add("nbLikes", lService.getNbLikes(idMsg));
 			}
-				;
 				break;
 			}
 		}

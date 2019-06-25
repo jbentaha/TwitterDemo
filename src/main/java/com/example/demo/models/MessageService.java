@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.json.Json;
@@ -46,9 +47,9 @@ public class MessageService {
 	public JsonObjectBuilder deleteById(String id) {
 		boolean bool = false;
 		JsonObjectBuilder obj = Json.createObjectBuilder();
-		if(base.findOne(id) != null) {
-			Message msg = base.findOne(id);
-			base.delete(msg);
+		if(base.findById(id) != null) {
+			Optional<Message> msg = base.findById(id);
+			base.delete(msg.get());
 			bool = true;
 		}
 		obj.add("isDeleted", bool);
