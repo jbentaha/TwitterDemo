@@ -38,13 +38,16 @@ public class ApiController {
 	LikeeService lService = Main.likeService;
 
 	@RequestMapping(value = "/api", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String Submit(@RequestParam(value = "content", required = false) String content,
-			@RequestParam(value = "action", required = false) String action,
-			@RequestParam(value = "id", required = false) String id,
-			@RequestParam(value = "username", required = false) String username,
-			@RequestParam(value = "password", required = false) String password,
-			@RequestParam(value = "idMsg", required = false) String idMsg,
-			@RequestParam(value = "idUser", required = false) String idUser) {
+	public String submit(//
+			@RequestParam(value = "content", required = false) String content,//
+			@RequestParam(value = "action", required = false) String action,//
+			@RequestParam(value = "id", required = false) String id,//
+			@RequestParam(value = "username", required = false) String username,//
+			@RequestParam(value = "password", required = false) String password,//
+			@RequestParam(value = "idMsg", required = false) String idMsg,//
+			@RequestParam(value = "idUser", required = false) String idUser//
+			) {
+		
 		JsonObjectBuilder obj = Json.createObjectBuilder();
 		JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
 
