@@ -10,10 +10,10 @@ import com.example.demo.models.UserService;
 @SpringBootApplication
 public class Main {
 
-	public static MessageService messageService = new MessageService();
-	public static UserService userService = new UserService();
-	public static LikeeService likeService = new LikeeService();
-	
+	public static MessageService messageService;
+	public static UserService userService;
+	public static LikeeService likeService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class);
 	}
