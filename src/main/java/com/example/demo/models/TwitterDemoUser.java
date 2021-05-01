@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class TwitterDemoUser {
 
 	@Id
 	private String username;
@@ -30,7 +30,7 @@ public class User {
 	@Override
 	public boolean equals(Object usr) {
 		boolean exist = false;
-		User myUser = (User) usr;
+		TwitterDemoUser myUser = (TwitterDemoUser) usr;
 		if (this.getUsername().equals(myUser.getUsername()) && this.getPassword().equals(myUser.getPassword())) {
 			exist = true;
 		}

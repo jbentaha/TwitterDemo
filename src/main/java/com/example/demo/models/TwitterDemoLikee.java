@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Likee implements Serializable {
+public class TwitterDemoLikee implements Serializable {
 
 	/**
 	 * 

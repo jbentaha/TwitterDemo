@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo.services;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,29 +10,33 @@ import javax.json.JsonObjectBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class LikeeService {
-	@Autowired
-	LikeeRepository base;
+import com.example.demo.models.TwitterDemoLikee;
+import com.example.demo.models.TwitterDemoLikeeRepository;
 
-	public boolean addLike(Likee likee) {
+@Service
+public class TwitterDemoLikeeService {
+	
+	@Autowired
+	private TwitterDemoLikeeRepository base;
+
+	public boolean addLike(TwitterDemoLikee likee) {
 		likee.setId(UUID.randomUUID().toString());
-		Likee like = base.findByMsgidAndUserid(likee.getMsgid(), likee.getUserid());
+		TwitterDemoLikee like = base.findByMsgidAndUserid(likee.getMsgid(), likee.getUserid());
 		if(like == null) {
 			base.save(likee);
 			return true;
 		}
 		else {
-			base.delete(like.getId());
+			base.deleteById(like.getId());
 			System.out.println("deleted");
 			return false;
 		}
 	}
 	
 	public JsonArrayBuilder getAllLikes() {
-		List<Likee> allLikees = (List<Likee>) base.findAll();
+		List<TwitterDemoLikee> allLikees = (List<TwitterDemoLikee>) base.findAll();
 		JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-		for(Likee likee : allLikees) {
+		for(TwitterDemoLikee likee : allLikees) {
 			JsonObjectBuilder obj = Json.createObjectBuilder();
 			obj.add("id", likee.getId());
 			obj.add("msg", likee.getMsgid());
@@ -44,9 +48,9 @@ public class LikeeService {
 	}
 	
 	public JsonArrayBuilder getAllLikesByMsg(String idMsg) {
-		List<Likee> allLikees = (List<Likee>) base.findAllByMsgid(idMsg);
+		List<TwitterDemoLikee> allLikees = (List<TwitterDemoLikee>) base.findAllByMsgid(idMsg);
 		JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-		for(Likee likee : allLikees) {
+		for(TwitterDemoLikee likee : allLikees) {
 			JsonObjectBuilder obj = Json.createObjectBuilder();
 			obj.add("id", likee.getId());
 			obj.add("msg", likee.getMsgid());
@@ -59,8 +63,8 @@ public class LikeeService {
 	
 	public boolean isMsgLikesByUser(String idMsg, String user) {
 		boolean isExist = false;
-		List<Likee> allLikeofMsg = (List<Likee>) base.findAllByMsgid(idMsg);
-		for(Likee likee : allLikeofMsg) {
+		List<TwitterDemoLikee> allLikeofMsg = (List<TwitterDemoLikee>) base.findAllByMsgid(idMsg);
+		for(TwitterDemoLikee likee : allLikeofMsg) {
 			if(likee.getUserid().equals(user))
 				isExist = true;
 		}
@@ -68,9 +72,9 @@ public class LikeeService {
 	}
 	
 	public JsonArrayBuilder usersLikeMsg(String idMsg) {
-		List<Likee> allLikeofMsg = (List<Likee>) base.findAllByMsgid(idMsg);
+		List<TwitterDemoLikee> allLikeofMsg = (List<TwitterDemoLikee>) base.findAllByMsgid(idMsg);
 		JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-		for(Likee likee : allLikeofMsg) {
+		for(TwitterDemoLikee likee : allLikeofMsg) {
 			JsonObjectBuilder obj = Json.createObjectBuilder();
 			obj.add("user", likee.getUserid());
 			arrayBuilder.add(obj);
@@ -79,7 +83,7 @@ public class LikeeService {
 	}
 	
 	public int getNbLikes(String idMsg) {
-		List<Likee> allLikeofMsg = (List<Likee>) base.findAllByMsgid(idMsg);
+		List<TwitterDemoLikee> allLikeofMsg = (List<TwitterDemoLikee>) base.findAllByMsgid(idMsg);
 		return allLikeofMsg.size();
 	}
 }

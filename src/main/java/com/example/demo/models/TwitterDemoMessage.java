@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Message implements Serializable {
+public class TwitterDemoMessage implements Serializable {
 
 	/**
 	 * 
